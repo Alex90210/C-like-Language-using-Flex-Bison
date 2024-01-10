@@ -1,0 +1,170 @@
+// Use this rule in the call method
+arg_list : expr
+         | ID '(' call_list ')'
+         | arg_list ',' expr
+         | arg_list ',' ID '(' call_list ')'
+         ;
+
+param : TYPE ID 
+
+list_param : param
+           | list_param ',' param 
+           ;
+
+| number_expr EQ number_expr
+            | number_expr NEQ number_expr
+            | number_expr LT number_expr
+            | number_expr LTE number_expr
+            | number_expr GT number_expr
+            | number_expr GTE number_expr
+
+            // TODO: Update all the expr to return the structure
+/* expr : number_expr {
+    // This seems to return a value from the expression
+    $$ = $1;
+}
+| bool_expr {
+    $$ = $1;
+}
+;
+
+number_expr : number_expr '+' number_expr {
+    string type1 = getTypeOf($1);
+    string type2 = getTypeOf($3);
+
+    if (type1 != type2) {
+        yyerror("Type mismatch in expression.");
+    }
+    else {
+        char* str = strdup(type1.c_str()); 
+        $$ = str;
+    }
+}
+| number_expr '-' number_expr {
+    string type1 = getTypeOf($1);
+    string type2 = getTypeOf($3);
+
+    if (type1 != type2) {
+        yyerror("Type mismatch in expression.");
+    }
+}
+| number_expr '*' number_expr {
+    string type1 = getTypeOf($1);
+    string type2 = getTypeOf($3);
+
+    if (type1 != type2) {
+        yyerror("Type mismatch in expression.");
+    }
+}
+| number_expr '/' number_expr {
+    string type1 = getTypeOf($1);
+    string type2 = getTypeOf($3);
+
+    if (type1 != type2) {
+        yyerror("Type mismatch in expression.");
+    }
+}
+| '(' number_expr ')' {
+    $$ = $2; 
+}
+| ID {
+    Symbol* sym = table.findSymbol($1);
+    if (sym == nullptr) {
+        yyerror(("Variable not defined: " + std::string($1)).c_str());
+    }
+}
+| NR {
+    char* str = strdup(std::to_string($1).c_str());
+    $$ = str;
+}
+| FLOAT {
+    char* str = strdup(std::to_string($1).c_str());
+    $$ = str;
+}
+; */
+
+if (std::string($1) == "char" || std::string($1) == "string") {
+                    ASTNode* exprNode = static_cast<ASTNode*>($4);
+                    std::string result = exprNode->evaluateNonNumeric(table);
+
+                    printf("Result: %s at line: %n", result.c_str(), yylineno);
+
+                    if (std::string($1) != exprNode->varType) {
+                            yyerror(("Type mismatch in assignment. L-type:" + std::string($1) +
+                            " R-type:" + exprNode->varType).c_str());
+                    }
+                    else {
+                        Symbol* sym = table.findSymbol($2);
+                        if (sym != nullptr) {
+                            yyerror(("Variable previosly defined: " + std::string($2)).c_str());
+                        } 
+                        else {
+                            Symbol symbol;
+                            symbol.name = $2;
+                            symbol.type = $1;
+                            symbol.isConstant = false;
+                            symbol.scope = currentScope();
+                            symbol.value = result;
+                            table.addSymbol(symbol);
+                        }
+                    }
+                }
+                else {
+
+                    /* number_expr:
+    number_expr '+' number_expr {
+        $$ = static_cast<void*>(new ASTNode(ASTNode::OPERATOR, "+", 
+        static_cast<ASTNode*>($1), static_cast<ASTNode*>($3)));
+    }
+    | number_expr '-' number_expr {
+        $$ = static_cast<void*>(new ASTNode(ASTNode::OPERATOR, "-", 
+        static_cast<ASTNode*>($1), static_cast<ASTNode*>($3)));
+    }
+    | number_expr '*' number_expr {
+        $$ = static_cast<void*>(new ASTNode(ASTNode::OPERATOR, "*", 
+        static_cast<ASTNode*>($1), static_cast<ASTNode*>($3)));
+    }
+    | number_expr '/' number_expr {
+        $$ = static_cast<void*>(new ASTNode(ASTNode::OPERATOR, "/", 
+        static_cast<ASTNode*>($1) static_cast<ASTNode*>($3)));
+    }
+    | '(' number_expr ')' { $$ = $2; }
+    | ID {
+            Symbol* sym = table.findSymbol($1);
+            if (sym == nullptr) {
+                yyerror(("Variable not defined: " + std::string($1)).c_str());
+                $$ = nullptr;
+            } else {
+                $$ = static_cast<void*>(new ASTNode(ASTNode::IDENTIFIER, sym->name));
+            }
+        }
+    | NR {
+    $$ = static_cast<void*>(new ASTNode(ASTNode::NUMBER, "int", std::to_string($1)));
+    }
+    | FLOAT {
+        $$ = static_cast<void*>(new ASTNode(ASTNode::NUMBER, "float", std::to_string($1)));
+    }
+    ;
+
+
+bool_expr:
+    bool_expr OR bool_expr {
+        $$ = static_cast<void*>(new ASTNode(ASTNode::BOOL_OPERATOR, "OR", 
+        static_cast<ASTNode*>($1), static_cast<ASTNode*>($3)));
+    }
+    | bool_expr AND bool_expr {
+        $$ = static_cast<void*>(new ASTNode(ASTNode::BOOL_OPERATOR, "AND", 
+        static_cast<ASTNode*>($1), static_cast<ASTNode*>($3)));
+    }
+    | '!' bool_expr {
+        $$ = static_cast<void*>(new ASTNode(ASTNode::BOOL_OPERATOR, "!", 
+        nullptr, static_cast<ASTNode*>($2)));
+    }
+    | '(' bool_expr ')' {
+        $$ = $2;
+    }
+    | BOOL {
+        std::string boolValue = ($1) ? "true" : "false";
+        $$ = static_cast<void*>(new ASTNode(ASTNode::BOOL_VALUE, boolValue));
+    }
+    ; */

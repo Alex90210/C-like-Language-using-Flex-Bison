@@ -1,0 +1,20 @@
+What else if left to do?
+
+FIX : why do frame functions not store parameters?
+
+1. - return function values, evaluate function calls
+2. - make if/while actually work
+3. - make string assignments not break the program
+
+What works well:
+
+1. Checking the types of function calls.
+2. Checking that the right part of an expression is made up from the same types.
+3. Duplicate declaration check.
+4. If an expr has different types the value will not be stored in the table, in an initialization
+5. Arithmetic/bool evaluations
+6. Evals for method members, array types, expressions
+
+Limitations: 
+
+2. Functions/methods can't return values yet.

@@ -1,0 +1,102 @@
+frame painting {
+    string mmmm;
+    int width := 21;
+    int testBool;
+    int value1[20];
+    int value[10] := 200;
+    for () {
+        int a := 33 + 22;
+    };
+    def int function(float all, string mmmm) {
+        int x := 12;
+        x := 12 + 22;
+        skipControlStatements();
+        return x;
+    }
+}
+
+frame testFrame {
+    float dd := 22.0;
+    float tt := 33.0;
+    float num1 := 44.0;
+    def float func(float num1, float num2) {
+        float ddd := 11.1 + 22.2;
+        ddd := 222.33;
+        skipControlStatements();
+        return dd;
+    }
+}
+
+string testString;
+char charTest :: 'a';
+char char2 :: charTest;
+bool testBool := false;
+int testInt := 2.3 + 2;
+float testFloat := 1.3 + 23.33;
+int value := 2 - 3 * (1 + 6);
+bool purchased := false || true || (true && false);
+int test := 20 + value;
+int test2 := test + test + 100;
+float test3 := test + 20;
+const bool avaible := true;
+float offers[10] := 5;
+
+def int auction(bool purchased, float value) {
+    int xx := 22 * 3 - 6;
+    float yy := 44;
+    string racxer;
+    
+    xx := 700;
+    
+
+    skipControlStatements();
+    return yy;
+}
+def int reprocess(int known, bool queen, string macho){
+    char let;
+    bool expr := true && false;
+    
+    expr := false;
+
+    skipControlStatements();
+    return let;
+}
+def bool dsfa() {
+    float sum := 22.1 + 865.28;
+
+    sum := sum + sum;
+    
+    skipControlStatements();
+    return sum;
+}
+
+
+begin_progr
+    const int xxx := 23;
+    int terst := 12;
+    string tst;
+    value := b;
+    value := 12;
+    xxT := terst;
+    value := tst;
+    call (5,45);
+    auction(purchased, 12.5);
+    painting.function(true, 23.4);
+
+    Eval(22 + 33 + 11);
+    Eval(0.5 + 2.55 * 3.0);
+    Eval(test2);
+    Eval(painting.width);
+    Eval(offers[4]);
+
+    TypeOf(22 + 33 + 11);
+    TypeOf(0.5 + 2.55 * 3.0);
+    TypeOf(3);
+    TypeOf(painting.width);
+
+
+    TypeOf(testString);
+    auction (purchased, 20);
+    painting.function();
+    while () {int x;};
+end_progr

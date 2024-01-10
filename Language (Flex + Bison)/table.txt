@@ -1,0 +1,40 @@
+Symbols:
+Symbol: x, Type: int, Scope: function, Is Constant: 0, Value: 34.000000
+
+Symbol: ddd, Type: float, Scope: func, Is Constant: 0, Value: 222.330002
+
+Symbol: testString, Type: string, Scope: global, Is Constant: 0, Value: 
+Symbol: charTest, Type: char, Scope: global, Is Constant: 0, Value: 
+Symbol: char2, Type: char, Scope: global, Is Constant: 0, Value: 
+Symbol: testBool, Type: bool, Scope: global, Is Constant: 0, Value: 0.000000
+Symbol: testFloat, Type: float, Scope: global, Is Constant: 0, Value: 24.630000
+Symbol: value, Type: int, Scope: global, Is Constant: 0, Value: 12.000000
+Symbol: purchased, Type: bool, Scope: global, Is Constant: 0, Value: 1.000000
+Symbol: test, Type: int, Scope: global, Is Constant: 0, Value: 1.000000
+Symbol: test2, Type: int, Scope: global, Is Constant: 0, Value: 102.000000
+Symbol: avaible, Type: bool, Scope: global, Is Constant: 1, Value: 1.000000
+Symbol: offers, Type: float[], Scope: global, Is Constant: 0, Value: 
+
+Symbol: xx, Type: int, Scope: auction, Is Constant: 0, Value: 700.000000
+Symbol: racxer, Type: string, Scope: auction, Is Constant: 0, Value: 
+
+Symbol: let, Type: char, Scope: reprocess, Is Constant: 0, Value: 
+Symbol: expr, Type: bool, Scope: reprocess, Is Constant: 0, Value: 0.000000
+
+Symbol: sum, Type: float, Scope: dsfa, Is Constant: 0, Value: 1774.760010
+
+Symbol: xxx, Type: int, Scope: global, Is Constant: 1, Value: 23.000000
+Symbol: terst, Type: int, Scope: global, Is Constant: 0, Value: 12.000000
+Symbol: tst, Type: string, Scope: global, Is Constant: 0, Value: 
+Symbol: x, Type: int, Scope: global, Is Constant: 0, Value: 
+
+Functions:
+Function: auction, Return Type: int, Scope: global, Parameters: float num1; float num2; 
+Function: reprocess, Return Type: int, Scope: global, Parameters: bool purchased; float value; 
+Function: dsfa, Return Type: bool, Scope: global, Parameters: int known; bool queen; string macho; 
+
+Frames and their Functions:
+Frame: painting
+  Function: function, Return Type: int, Defined In Class: painting, Parameters: 
+Frame: x
+  Function: func, Return Type: float, Defined In Class: x, Parameters: 
